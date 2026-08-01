@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "Please cite this software release and the associated article."
+message: "If you use this software, please cite this repository release and the associated article."
 title: "AISKG Section 2: Post-Extraction Knowledge-Graph Analysis and Validation"
 type: software
 authors:

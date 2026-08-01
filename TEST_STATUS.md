@@ -36,6 +36,23 @@ Sub-machine-precision centrality summation noise is rounded before tied-rank cal
 
 The notebook installs only dependencies that are missing and avoids forced downgrades. No software can guarantee compatibility with every future Colab image, but the default workflow has removed the known failure sources: live APIs, model downloads, external Excel links, unstable built-in hashing, manual path edits, and unverified input versions. Schema/checksum failures stop early with explicit messages.
 
-## Publication-release integrity
+## Upload-ready release validation
 
-The upload-ready v2.0.0 repository includes the tested reference archive, corrected current-repository links, a cross-platform SHA-256 verifier, and an automated Python 3.12 GitHub Actions smoke test. The analytical core is unchanged from the successful 61-file reference run.
+The repository-specific Colab badge, Section 1 link, and automatic companion-ZIP
+download fallback were added. Every code cell in the updated notebook was then
+compiled and executed sequentially in a clean working directory with the
+packaged input ZIP. The run completed successfully in approximately 32 seconds,
+created `PIPELINE_SUCCESS.txt`, generated 61 outputs, and passed all 94 fixed
+result checks. The generated output ZIP was byte-identical to the packaged
+reference archive.
+
+## Upload-ready release validation
+
+The repository-specific Colab badge, Section 1 link, and automatic companion-ZIP
+download fallback were added. Every code cell in the updated notebook was then
+compiled and executed sequentially in a clean working directory with the
+packaged input ZIP. The run completed successfully in approximately 32 seconds,
+created `PIPELINE_SUCCESS.txt`, generated 61 outputs, and passed all 94 fixed
+result checks. The generated output ZIP was byte-identical to the packaged
+reference archive.
+

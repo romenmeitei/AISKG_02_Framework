@@ -1,16 +1,30 @@
-# Upload instructions — AISKG_02_Framework
+# Upload instructions for AISKG_02_Framework
+
+## Recommended Git command workflow
 
 ```bash
 git clone https://github.com/romenmeitei/AISKG_02_Framework.git
 cd AISKG_02_Framework
-# Copy all files from the upload-ready folder here, preserving directories.
+# Copy all files from this upload-ready directory into the clone, preserving
+# the reference_outputs/ directory.
 python verify_repository.py
 git add -A
-git commit -m "Complete reproducibility release v2.0.0"
+git commit -m "Complete Section 2 reproducibility release"
 git push origin main
-git tag -a v2.0.0 -m "Publication reproducibility release v2.0.0"
-git push origin v2.0.0
 ```
 
-The upload must include `reference_outputs/`, `.github/workflows/`, licensing
-files, citation metadata, and the generated manifest/checksum files.
+## Required additions/replacements
+
+Upload or overwrite every file in this directory. In particular, the current
+public repository is missing:
+
+- `GITHUB_UPLOAD_CHECKLIST.md`
+- `MANUSCRIPT_CORRECTIONS_REQUIRED.md`
+- `reference_outputs/Mushroom_KG_Complete_Reproducibility_Outputs_Reference.zip`
+- finalized citation and licensing files
+
+After upload, execute:
+
+```bash
+python verify_repository.py
+```
