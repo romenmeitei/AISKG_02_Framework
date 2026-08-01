@@ -7,7 +7,7 @@ Validation date: **2026-08-01**
 - Section 1 cross-platform manifest verification: passed.
 - Section 1 standard SHA-256 verification: 30/30 files passed.
 - Section 2 cross-platform manifest verification: passed.
-- Section 2 standard SHA-256 verification: 26/26 files passed.
+- Section 2 standard SHA-256 verification: 27/27 files passed.
 - Both `CITATION.cff` files parsed successfully.
 - Both notebooks parsed and all Python source files compiled successfully.
 - No obsolete repository slug remained in the release code or documentation.
