@@ -1,0 +1,30 @@
+name: reproducibility-smoke-test
+
+"on":
+  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  post-extraction:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: python -m pip install --upgrade pip
+      - run: pip install -r requirements.txt
+      - run: python verify_repository.py
+      - name: Run Section 2 pipeline
+        shell: bash
+        run: |
+          rm -rf _ci_inputs _ci_outputs
+          unzip -q Mushroom_KG_Reproducibility_Inputs_v2.zip -d _ci_inputs
+          INPUT_DIR=$(dirname "$(find _ci_inputs -name input_checksums.csv -print -quit)")
+          test -n "$INPUT_DIR"
+          python pipeline_core.py --input-dir "$INPUT_DIR" --output-dir _ci_outputs
+          test -f _ci_outputs/PIPELINE_SUCCESS.txt
